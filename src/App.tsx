@@ -1,5 +1,6 @@
 import "./App.css";
 import { Button } from "./components/atoms/Button";
+import { TextBox } from "./components/atoms/TextBox";
 
 function App() {
   return (
@@ -7,7 +8,7 @@ function App() {
       <header>
         <h1>TODOリスト</h1>
         <form>
-          <input type="text" placeholder="新しいタスクを追加" />
+          <TextBox placeholder="新しいタスクを追加" type="text" />
           <Button type="submit" variant="ADD">
             追加
           </Button>
