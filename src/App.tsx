@@ -1,24 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Button } from "./components/atoms/Button";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>TODOリスト</h1>
+        <form>
+          <input type="text" placeholder="新しいタスクを追加" />
+          <Button type="submit" variant="ADD">
+            追加
+          </Button>
+        </form>
       </header>
+      <main>
+        <ul>
+          <li>
+            <input type="checkbox" id="task1" />
+            <label htmlFor="task1">買い物に行く</label>
+            <Button variant="DELETE">削除</Button>
+          </li>
+          <li>
+            <input type="checkbox" id="task2" />
+            <label htmlFor="task2">洗濯する</label>
+            <Button variant="DELETE">削除</Button>
+          </li>
+          <li>
+            <input type="checkbox" id="task3" />
+            <label htmlFor="task3">プログラミングの勉強をする</label>
+            <Button variant="DELETE">削除</Button>
+          </li>
+        </ul>
+      </main>
     </div>
   );
 }
