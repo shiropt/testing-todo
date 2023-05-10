@@ -3,21 +3,37 @@ import styled from "styled-components";
 import { ComponentProps, FC, ReactNode } from "react";
 
 type Variant = "ADD" | "DELETE" | "EDIT";
-type Props = {
+type Size = "SMALL" | "MEDIUM" | "LARGE";
+export type Props = {
   children: ReactNode;
   variant: Variant;
+  size?: Size;
 } & ComponentProps<"button">;
 
-export const Button: FC<Props> = ({ children, ...props }) => {
-  return <ButtonWrapper {...props}>{children}</ButtonWrapper>;
+export const Button: FC<Props> = ({ children, size = "MEDIUM", ...props }) => {
+  return (
+    <ButtonWrapper size={size} {...props}>
+      {children}
+    </ButtonWrapper>
+  );
 };
 
-const ButtonWrapper = styled.button<{ variant: Variant }>`
+const ButtonWrapper = styled.button<Pick<Props, "size" | "variant">>`
   padding: 10px;
   border: none;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+  width: ${({ size }) => {
+    switch (size) {
+      case "SMALL":
+        return "60px";
+      case "LARGE":
+        return "120px";
+      default:
+        return "80px";
+    }
+  }};
   background-color: ${({ variant }) => {
     switch (variant) {
       case "ADD":
@@ -28,4 +44,11 @@ const ButtonWrapper = styled.button<{ variant: Variant }>`
         return "#0066FF";
     }
   }};
+  &:hover {
+    opacity: 0.8;
+  }
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 `;

@@ -1,10 +1,6 @@
-import { ComponentProps, FC } from "react";
+import { ComponentProps, forwardRef } from "react";
 import { styled } from "styled-components";
 type Props = {} & ComponentProps<"input">;
-
-export const TextBox: FC<Props> = ({ ...props }) => {
-  return <TextBoxWrapper {...props} />;
-};
 
 const TextBoxWrapper = styled.input`
   padding: 10px;
@@ -12,3 +8,7 @@ const TextBoxWrapper = styled.input`
   flex: 1;
   outline: "none";
 `;
+
+export const TextBox = forwardRef<HTMLInputElement, Props>(({ ...props }, ref) => {
+  return <TextBoxWrapper {...props} ref={ref} />;
+});
