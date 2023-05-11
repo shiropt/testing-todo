@@ -34,18 +34,20 @@ const ListWrapper = styled.li<Props>`
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   background: ${(props) => (props.isEdit ? "#e8f8ff" : "#FFFF")};
 `;
 
 const ListButton = styled(Button)`
-  margin-right: 16px;
+  margin-right: 8px;
 `;
 const ButtonWrapper = styled.div`
-  min-width: 220px;
+  min-width: 120px;
   display: flex;
   justify-content: right;
 `;
 const CheckLabelWrapper = styled.div`
   flex: 1;
+  min-width: 150px;
 `;

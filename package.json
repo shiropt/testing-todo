@@ -67,6 +67,7 @@
     "@storybook/react-webpack5": "^7.0.9",
     "@storybook/testing-library": "^0.0.14-next.2",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^6.17.4",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.9",
     "webpack": "^5.82.0"

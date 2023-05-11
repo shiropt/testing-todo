@@ -33,6 +33,7 @@ const CheckBox = styled.input`
 const TextBoxWrapper = styled(TextBox)`
   margin-left: 8px;
   width: 100%;
+  min-width: 150px;
 `;
 const Wrapper = styled.div`
   display: flex;

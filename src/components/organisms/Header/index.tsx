@@ -20,10 +20,12 @@ const HeaderWrapper = styled.header`
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
 `;
 
 const Title = styled.h1`
+  width: 70%;
   margin: 0;
   font-size: 24px;
 `;
