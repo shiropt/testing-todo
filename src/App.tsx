@@ -1,13 +1,11 @@
 import { useForm } from "react-hook-form";
 import "./App.css";
-import { Button } from "./components/atoms/Button";
 import { Form } from "./components/molecules/Form";
 import { Todo, createTodoSchema } from "./lib/schema/Todo";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Header } from "./components/organisms/Header";
-import { useState } from "react";
-import { CheckLabel } from "./components/molecules/CheckLabel";
 import { List } from "./components/organisms/List";
+import useSWR, { Fetcher } from "swr";
 
 function App() {
   const {
@@ -15,10 +13,19 @@ function App() {
     handleSubmit,
     watch,
     control,
+    getValues,
     formState: { errors },
   } = useForm<Todo>({ resolver: zodResolver(createTodoSchema) });
-  const onSubmit = (data: Todo) => console.log(data.title);
-  const [check, setCheck] = useState(false);
+  const onSubmit = async (data: Todo) => {};
+  const fetcher = async (path: string) => {
+    const response = await fetch(path);
+    const json = await response.json();
+    return json;
+  };
+
+  const { data } = useSWR<Todo[], Error>("/todos", fetcher);
+  const updateTodo = (todo: Todo) => {};
+  if (!data) return <p>error</p>;
 
   return (
     <div className="App">
@@ -27,9 +34,9 @@ function App() {
       </Header>
       <main>
         <ul>
-          <List check={check} label="買い物に行く" setCheck={setCheck} />
-          <List check={check} label="洗濯する" setCheck={setCheck} />
-          <List check={check} label="プログラミングの勉強をする" setCheck={setCheck} />
+          {data.map((todo) => {
+            return <List key={todo.id} updateTodo={updateTodo} todo={todo} />;
+          })}
         </ul>
       </main>
     </div>

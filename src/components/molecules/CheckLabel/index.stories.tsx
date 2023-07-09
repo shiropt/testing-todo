@@ -9,16 +9,17 @@ const meta: Meta<typeof CheckLabel> = {
 
 export default meta;
 type Story = StoryObj<typeof CheckLabel>;
+const mockRegister: any = "";
 
-export const CheckLabels: Story = {
-  render: () => (
-    <div>
-      <h2>No Check</h2>
-      <CheckLabel label="買い物へ行く" check={false} setCheck={() => {}} />
-      <h2>Check</h2>
-      <CheckLabel label="買い物へ行く" check setCheck={() => {}} />
-      <h2>EditMode</h2>
-      <CheckLabel isEdit label="買い物へ行く" check={false} setCheck={() => {}} />
-    </div>
-  ),
-};
+// export const CheckLabels: Story = {
+//   render: () => (
+//     <div>
+//       <h2>No Check</h2>
+//       <CheckLabel label="買い物へ行く" register={mockRegister} check={false} />
+//       <h2>Check</h2>
+//       <CheckLabel label="買い物へ行く" register={mockRegister} check />
+//       <h2>EditMode</h2>
+//       <CheckLabel isEdit label="買い物へ行く" register={mockRegister} check={false} />
+//     </div>
+//   ),
+// };

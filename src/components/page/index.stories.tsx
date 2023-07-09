@@ -13,53 +13,53 @@ export default meta;
 type Story = StoryObj<typeof List>;
 const mockRegister: any = "";
 
-export const Page: Story = {
-  render: () => (
-    <div>
-      <Header title="TODOリスト">
-        <Form buttonName="追加" register={mockRegister} />
-      </Header>
-      <Main>
-        <List
-          label="買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く"
-          check={false}
-          setCheck={() => {}}
-        />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} isEdit setCheck={() => {}} />
-        <List label="買い物へ行く" check={true} setCheck={() => {}} />
-        <List label="買い物へ行く" check={true} setCheck={() => {}} />
-        <List label="買い物へ行く" check={true} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-        <List label="買い物へ行く" check={false} setCheck={() => {}} />
-      </Main>
-    </div>
-  ),
-};
-const Main = styled.main`
-  margin-top: 16px;
-`;
+// export const Page: Story = {
+//   render: () => (
+//     <div>
+//       <Header title="TODOリスト">
+//         <Form buttonName="追加" register={mockRegister} />
+//       </Header>
+//       <Main>
+//         <List
+//           label="買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く買い物へ行く"
+//           check={false}
+//           register={mockRegister}
+//         />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} isEdit register={mockRegister} />
+//         <List label="買い物へ行く" check={true} register={mockRegister} />
+//         <List label="買い物へ行く" check={true} register={mockRegister} />
+//         <List label="買い物へ行く" check={true} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//         <List label="買い物へ行く" check={false} register={mockRegister} />
+//       </Main>
+//     </div>
+//   ),
+// };
+// const Main = styled.main`
+//   margin-top: 16px;
+// `;
