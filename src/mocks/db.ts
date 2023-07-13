@@ -4,6 +4,8 @@ export const db = factory({
   todo: {
     id: primaryKey(Number),
     title: String,
-    isDone: Boolean,
+    isCompleted: Boolean,
+    createdDate: String,
+    dueDate: String,
   },
 });

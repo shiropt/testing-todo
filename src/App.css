@@ -1,76 +1,130 @@
-* {
-  box-sizing: border-box;
-}
+/* App.css */
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-header {
-  background-color: #333;
-  color: #fff;
+.container {
+  max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tabs {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 24px;
-}
-
-form {
-  display: flex;
-}
-
-form input[type="text"] {
-  padding: 10px;
-  border: none;
-  border-radius: 5px 0 0 5px;
+.tab {
   flex: 1;
-}
-
-form button[type="submit"] {
   padding: 10px;
-  border: none;
-  background-color: #4caf50;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
+  background-color: #f2f2f2;
+  text-align: center;
+  font-weight: bold;
   cursor: pointer;
 }
 
-main {
-  margin: 20px;
+.tab.active {
+  background-color: #4caf50;
+  color: #fff;
 }
 
-ul {
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.todo-form input[type="text"],
+.todo-form input[type="date"] {
+  padding: 8px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.add-button {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.todo-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-li {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 10px;
+.todo-item {
   display: flex;
   align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 }
 
-li input[type="checkbox"] {
+.todo-checkbox {
   margin-right: 10px;
 }
 
-li button {
+.todo-title {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.todo-dates {
+  font-size: 14px;
+  color: #888;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.todo-actions {
   margin-left: auto;
-  padding: 10px;
+}
+
+.edit-button,
+.delete-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #f2f2f2;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
   border: none;
-  background-color: #f44336;
-  color: #fff;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: #ddd;
+}
+
+.date-list {
+  margin-top: 20px;
+}
+
+.date-heading {
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.no-todos {
+  margin-top: 10px;
+  text-align: center;
+  color: #888;
 }

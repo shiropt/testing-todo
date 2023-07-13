@@ -2,10 +2,9 @@ import { ComponentProps, FC, forwardRef } from "react";
 import { TextBox } from "../../atoms/TextBox";
 import { Button } from "../../atoms/Button";
 import { styled } from "styled-components";
-import { UseFormRegisterReturn } from "react-hook-form";
 
 type Props = {
-  register: UseFormRegisterReturn;
+  register: any;
   buttonName: string;
 } & ComponentProps<"form">;
 
