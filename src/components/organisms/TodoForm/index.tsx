@@ -1,22 +1,22 @@
-import { useFormik } from "formik";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import { styled } from "styled-components";
-import { Button } from "../../atoms/Button";
-import { TextBox } from "../../atoms/TextBox";
-import { FC } from "react";
-import { formatDate, getCurrentDate } from "../../../utils/date";
-import { Todo } from "../../../types";
+import { useFormik } from 'formik';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { styled } from 'styled-components';
+import { Button } from '../../atoms/Button';
+import { TextBox } from '../../atoms/TextBox';
+import { FC } from 'react';
+import { formatDate, getCurrentDate } from '../../../utils/date';
+import { Todo } from '../../../types';
+import { useTodo } from '../../../hooks/todo';
 
-type Props = {
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-  todos: Todo[];
-};
+type Props = {};
 
-export const TodoForm: FC<Props> = ({ setTodos, todos }) => {
+export const TodoForm: FC<Props> = () => {
+  const { addTodo } = useTodo();
+
   const { setFieldValue, handleSubmit, values, handleChange } = useFormik({
     initialValues: {
-      title: "",
+      title: '',
       dueDate: new Date(),
     },
     onSubmit: (values) => {
@@ -27,11 +27,11 @@ export const TodoForm: FC<Props> = ({ setTodos, todos }) => {
           createdDate: getCurrentDate(),
           isCompleted: false,
           dueDate: formatDate(values.dueDate),
+          isEditMode: false,
         };
-        const updatedTodos = [...todos, newTodo];
-        setTodos(updatedTodos);
-        setFieldValue("title", "");
-        setFieldValue("dueDate", new Date());
+        addTodo(newTodo);
+        setFieldValue('title', '');
+        setFieldValue('dueDate', new Date());
       }
     },
   });
@@ -53,7 +53,7 @@ export const TodoForm: FC<Props> = ({ setTodos, todos }) => {
           dateFormat="yyyy/MM/dd"
           selected={values.dueDate}
           onChange={(e) => {
-            setFieldValue("dueDate", e);
+            setFieldValue('dueDate', e);
           }}
         />
       </div>

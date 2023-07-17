@@ -4,9 +4,10 @@ export type Todo = {
   createdDate: string;
   isCompleted: boolean;
   dueDate: string;
+  isEditMode: boolean;
 };
 
 export enum Tab {
-  All = "All",
-  Daily = "Daily",
+  All = 'All',
+  Daily = 'Daily',
 }

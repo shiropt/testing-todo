@@ -1,18 +1,12 @@
-import { FC } from "react";
-import { Tab, Todo } from "../../../types";
-import { EditTodoItem } from "../EditTodoItem";
-import { TodoItem } from "../Header/TodoItem";
+import { FC } from 'react';
+import { Tab, Todo } from '../../../types';
+import { EditTodoItem } from '../EditTodoItem';
+import { TodoItem } from '../Header/TodoItem';
+import { useTodo } from '../../../hooks/todo';
+import { isThisWeek } from '../../../utils/date';
 
 type Props = {
-  todos: Todo[];
-  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
   activeTab: Tab;
-  filteredTodos: Todo[];
-  editTodoId: number | null;
-  handleEditTodo: (id: number) => void;
-  setEditTodoId: React.Dispatch<React.SetStateAction<number | null>>;
-  handleUpdateTodo: (id: number, updatedTitle: string) => void;
-  handleDeleteTodo: (id: number) => void;
 };
 
 const groupedTodos = (todos: Todo[]) => {
@@ -32,17 +26,12 @@ const groupedTodos = (todos: Todo[]) => {
   });
 };
 
-export const TodoList: FC<Props> = ({
-  activeTab,
-  filteredTodos,
-  editTodoId,
-  handleEditTodo,
-  setEditTodoId,
-  handleUpdateTodo,
-  handleDeleteTodo,
-  todos,
-}) => {
-  console.log("todosだにゃ", todos);
+export const TodoList: FC<Props> = ({ activeTab }) => {
+  const { todos } = useTodo();
+  const filteredTodos =
+    activeTab === Tab.All
+      ? todos
+      : todos.filter((todo) => isThisWeek(new Date(todo.dueDate)));
 
   const data = groupedTodos([...filteredTodos]).sort((a, b) => {
     return new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
@@ -55,16 +44,11 @@ export const TodoList: FC<Props> = ({
           <h2>全てのTodoリスト</h2>
           <ul className="todo-list">
             {todos.map((todo) =>
-              editTodoId === todo.id ? (
-                <EditTodoItem
-                  key={todo.id}
-                  todo={todo}
-                  onUpdate={handleUpdateTodo}
-                  onCancel={() => setEditTodoId(null)}
-                />
+              todo.isEditMode ? (
+                <EditTodoItem key={todo.id} todo={todo} />
               ) : (
-                <TodoItem key={todo.id} todo={todo} onEdit={handleEditTodo} onDelete={handleDeleteTodo} />
-              )
+                <TodoItem key={todo.id} todo={todo} />
+              ),
             )}
           </ul>
         </div>
@@ -79,16 +63,11 @@ export const TodoList: FC<Props> = ({
                 <h3> {item.dueDate}</h3>
                 <ul className="todo-list">
                   {item.todos.map((todo) =>
-                    editTodoId === todo.id ? (
-                      <EditTodoItem
-                        key={todo.id}
-                        todo={todo}
-                        onUpdate={handleUpdateTodo}
-                        onCancel={() => setEditTodoId(null)}
-                      />
+                    todo.isEditMode ? (
+                      <EditTodoItem key={todo.id} todo={todo} />
                     ) : (
-                      <TodoItem key={todo.id} todo={todo} onEdit={handleEditTodo} onDelete={handleDeleteTodo} />
-                    )
+                      <TodoItem key={todo.id} todo={todo} />
+                    ),
                   )}
                 </ul>
               </div>

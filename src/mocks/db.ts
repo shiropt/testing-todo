@@ -1,4 +1,4 @@
-import { factory, primaryKey } from "@mswjs/data";
+import { factory, primaryKey } from '@mswjs/data';
 
 export const db = factory({
   todo: {
@@ -7,5 +7,6 @@ export const db = factory({
     isCompleted: Boolean,
     createdDate: String,
     dueDate: String,
+    isEditMode: Boolean,
   },
 });
