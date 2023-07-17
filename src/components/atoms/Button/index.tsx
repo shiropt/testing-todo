@@ -24,6 +24,7 @@ const ButtonWrapper = styled.button<Pick<Props, "size" | "variant">>`
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+  white-space: nowrap;
   width: ${({ size }) => {
     switch (size) {
       case "SMALL":
