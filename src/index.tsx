@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { I18nextProvider } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { store } from './state';
-import { i18n } from './locales/ja/i18n/i18n';
+import i18n from './lib/i18n';
 
 if (process.env.NODE_ENV === 'development') {
   const { worker } = require('./mocks/browser');
