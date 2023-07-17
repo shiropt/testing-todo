@@ -8,11 +8,13 @@ import { FC } from 'react';
 import { formatDate, getCurrentDate } from '../../../utils/date';
 import { Todo } from '../../../@types';
 import { useTodo } from '../../../hooks/todo';
+import { useTranslation } from 'react-i18next';
 
 type Props = {};
 
 export const TodoForm: FC<Props> = () => {
   const { addTodo } = useTodo();
+  const { t } = useTranslation();
 
   const { setFieldValue, handleSubmit, values, handleChange } = useFormik({
     initialValues: {
@@ -39,17 +41,17 @@ export const TodoForm: FC<Props> = () => {
   return (
     <Form onSubmit={handleSubmit}>
       <TextBoxWrapper
-        label="タスク名"
+        label={t('label.task')}
         name="title"
         type="text"
-        placeholder="新しいタスクを入力"
+        placeholder={t('placeholder.task')}
         onChange={handleChange}
         value={values.title}
       />
       <div>
-        <Label>期日</Label>
+        <Label>{t('label.dueDate')}</Label>
         <DatePick
-          placeholderText="期日を入力 (YYYY/MM/DD)"
+          placeholderText={t('placeholder.dueDate')}
           dateFormat="yyyy/MM/dd"
           selected={values.dueDate}
           onChange={(e) => {
@@ -58,7 +60,7 @@ export const TodoForm: FC<Props> = () => {
         />
       </div>
       <ButtonWrapper variant="ADD" color="primary" type="submit">
-        追加
+        {t('button.add')}
       </ButtonWrapper>
     </Form>
   );

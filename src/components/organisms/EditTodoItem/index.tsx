@@ -4,6 +4,7 @@ import { Todo } from '../../../@types';
 import { useTodo } from '../../../hooks/todo';
 import { TextBox } from '../../atoms/TextBox';
 import { styled } from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   todo: Todo;
@@ -11,7 +12,7 @@ type Props = {
 export const EditTodoItem: FC<Props> = ({ todo }) => {
   const [title, setTitle] = useState(todo.title);
   const { updateTodo } = useTodo();
-
+  const { t } = useTranslation();
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
   };
@@ -37,8 +38,13 @@ export const EditTodoItem: FC<Props> = ({ todo }) => {
           className="edit-todo-input"
         />
         <div className="todo-dates">
-          <span>作成日: {todo.createdDate}</span>
-          <span>期日: {todo.dueDate}</span>
+          <span>
+            {' '}
+            {t('label.dueDate')}: {todo.createdDate}
+          </span>
+          <span>
+            {t('label.dueDate')}: {todo.dueDate}
+          </span>
         </div>
       </div>
       <div className="todo-actions">
@@ -47,14 +53,14 @@ export const EditTodoItem: FC<Props> = ({ todo }) => {
           onClick={() => {
             updateTodo({ ...todo, title, isEditMode: false });
           }}>
-          更新
+          {t('button.update')}
         </Button>
         <Button
           variant="DELETE"
           onClick={() => {
             updateTodo({ ...todo, isEditMode: false });
           }}>
-          キャンセル
+          {t('button.cancel')}
         </Button>
       </div>
     </li>

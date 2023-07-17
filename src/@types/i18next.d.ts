@@ -1,7 +1,5 @@
-// import the original type declarations
 import 'i18next';
-import { Translation } from '../lib/i18n/locales/ja';
-// import all namespaces (for the default language, only)
+import { Ja } from '../lib/i18n/locales/ja';
 
 declare module 'i18next' {
   // Extend CustomTypeOptions
@@ -10,7 +8,8 @@ declare module 'i18next' {
     defaultNS: 'ja';
     // custom resources type
     resources: {
-      ja: Translation;
+      ja: Ja;
     };
   }
 }
+// reference: https://www.i18next.com/overview/typescript
