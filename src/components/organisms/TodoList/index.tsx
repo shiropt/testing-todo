@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { Tab, Todo } from '../../../@types';
-import { EditTodoItem } from '../EditTodoItem';
-import { TodoItem } from '../Header/TodoItem';
+import { TodoItem } from '../TodoItem';
 import { useTodo } from '../../../hooks/todo';
 import { isThisWeek } from '../../../utils/date';
 import { useTranslation } from 'react-i18next';
+import { styled } from 'styled-components';
 
 type Props = {
   activeTab: Tab;
@@ -45,15 +45,11 @@ export const TodoList: FC<Props> = ({ activeTab }) => {
       {activeTab === Tab.All && (
         <div>
           <h2>{t('tab.all')}</h2>
-          <ul className="todo-list">
-            {todos.map((todo) =>
-              todo.isEditMode ? (
-                <EditTodoItem key={todo.id} todo={todo} />
-              ) : (
-                <TodoItem key={todo.id} todo={todo} />
-              ),
-            )}
-          </ul>
+          <Ul className="todo-list">
+            {todos.map((todo) => (
+              <TodoItem key={todo.id} todo={todo} />
+            ))}
+          </Ul>
         </div>
       )}
 
@@ -64,15 +60,11 @@ export const TodoList: FC<Props> = ({ activeTab }) => {
             return (
               <div key={item.dueDate}>
                 <h3> {item.dueDate}</h3>
-                <ul className="todo-list">
-                  {item.todos.map((todo) =>
-                    todo.isEditMode ? (
-                      <EditTodoItem key={todo.id} todo={todo} />
-                    ) : (
-                      <TodoItem key={todo.id} todo={todo} />
-                    ),
-                  )}
-                </ul>
+                <Ul className="todo-list">
+                  {item.todos.map((todo) => (
+                    <TodoItem key={todo.id} todo={todo} />
+                  ))}
+                </Ul>
               </div>
             );
           })}
@@ -81,3 +73,8 @@ export const TodoList: FC<Props> = ({ activeTab }) => {
     </div>
   );
 };
+const Ul = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;

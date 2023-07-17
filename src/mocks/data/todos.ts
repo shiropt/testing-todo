@@ -70,7 +70,7 @@ export const todos: Todo[] = [
     title: 'プレゼンテーション用スライドの準備',
     isCompleted: true,
     createdDate: '2023/07/10',
-    dueDate: '2023/07/10',
+    dueDate: '2023/07/19',
     isEditMode: false,
   },
   {
@@ -78,7 +78,7 @@ export const todos: Todo[] = [
     title: 'ユーザー認証プロセスのバグ修正',
     isCompleted: false,
     createdDate: '2023/07/10',
-    dueDate: '2023/07/12',
+    dueDate: '2023/07/19',
     isEditMode: false,
   },
 ];

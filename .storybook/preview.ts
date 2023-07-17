@@ -1,8 +1,18 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from '@storybook/react';
+import { rest } from 'msw';
 
+import { initialize, mswLoader } from 'msw-storybook-addon';
+initialize();
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    msw: {
+      handlers: [
+        rest.get('/todos', (req, res, ctx) => {
+          return res(ctx.json([]));
+        }),
+      ],
+    },
+    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -10,6 +20,7 @@ const preview: Preview = {
       },
     },
   },
+  loaders: [mswLoader],
 };
 
 export default preview;

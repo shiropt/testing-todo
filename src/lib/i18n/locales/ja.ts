@@ -19,6 +19,7 @@ export const ja = {
   button: {
     add: '追加',
     cancel: 'キャンセル',
+    edit: '編集',
     update: '更新',
     delete: '削除',
   },
