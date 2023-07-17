@@ -6,7 +6,7 @@ import { Button } from '../../atoms/Button';
 import { TextBox } from '../../atoms/TextBox';
 import { FC } from 'react';
 import { formatDate, getCurrentDate } from '../../../utils/date';
-import { Todo } from '../../../types';
+import { Todo } from '../../../@types';
 import { useTodo } from '../../../hooks/todo';
 
 type Props = {};

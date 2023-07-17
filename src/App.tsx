@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import { TodoForm } from './components/organisms/TodoForm';
 import { TodoTab } from './components/organisms/TodoTab';
-import { Tab } from './types';
 import { TodoList } from './components/organisms/TodoList';
 import { useTodo } from './hooks/todo';
+import { Tab } from './@types';
 
 function App() {
   const isMount = useRef(false);

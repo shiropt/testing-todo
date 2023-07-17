@@ -1,5 +1,5 @@
 import { Reducer } from 'redux';
-import { Todo } from '../types';
+import { Todo } from '../@types';
 
 export const ADD_TODO = 'ADD_TODO';
 export const SET_TODOS = 'SET_TODO';

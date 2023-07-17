@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Button } from '../../../atoms/Button';
-import { Todo } from '../../../../types';
+import { Todo } from '../../../../@types';
 import { useTodo } from '../../../../hooks/todo';
 
 type Props = {

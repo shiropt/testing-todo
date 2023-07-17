@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Tab, Todo } from '../../../types';
+import { Tab, Todo } from '../../../@types';
 import { EditTodoItem } from '../EditTodoItem';
 import { TodoItem } from '../Header/TodoItem';
 import { useTodo } from '../../../hooks/todo';

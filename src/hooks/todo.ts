@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Todo } from '../types';
+import { Todo } from '../@types';
 import { request } from '../utils/api';
 import { SET_TODOS } from '../state/todo';
 import { RootState } from '../state';

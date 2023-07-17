@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import { Button } from '../../atoms/Button';
-import { Todo } from '../../../types';
+import { Todo } from '../../../@types';
 import { useTodo } from '../../../hooks/todo';
 import { TextBox } from '../../atoms/TextBox';
 import { styled } from 'styled-components';
